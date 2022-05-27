@@ -1,0 +1,160 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { WrfButtonIconComponent } from './wrf-button-icon.component';
+
+import { CommonModule } from '@angular/common';
+
+<Meta
+  title="Atoms/wrf-button-icon"
+  argTypes={{
+    color: {
+      options: ['primary', 'secondary'],
+      control: { type: 'radio' }
+    },
+    disabled: {
+      options: ['true', 'false'],
+      control: { type: 'radio' }
+    },
+  }}
+  component={WrfButtonIconComponent}/>
+
+export const Template = (args) => ({ props: args });
+
+# wrf-button-icon
+
+Button HTML element contains a label and icon element.
+
+| Angular Tag   |      JSON wrftype      |
+|------:|------:|
+| wrf-button-icon   |      button-icon      |
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      label: "Save",
+      color: "primary",
+      icon: "fas fa-save",
+      key: "1",
+      disabled: "false",
+      properties: '{}'
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Requeriments
+- It always has to be inside a form.
+
+| Type input/output | Property | Type | Description | Invoke |
+|:----------|:-------------:|:------:|:------:|:------:|
+| Input | key | string | id element | Only JSON (required) |
+| Input | wrftype | string | always ```button-icon``` | Only JSON (required) |
+| Input | properties | {} | Check end of this table | All |
+| Input | label | string | label | All |
+| Input | color | string | Color type button. Values: ```primary```,```secondary``` | All |
+| Input | icon | string | icon` | All |
+| Input | disabled | boolean |  | All |
+| Output | onClick($event) | $event: any | event is clicked | Only Angular invoke |
+
+Properties:
+```
+{
+    css: {
+        cssComponent: "", // general CSS class
+        cssLabel: "", // CSS class for label
+        cssInput: "" // CSS class for input
+    },
+    styles: {
+        stylesComponent: "", // general CSS styles
+        stylesLabel: "", // CSS styles for label
+        stylesInput: "" // CSS styles for input
+    },
+    onSubmit:{} // no typed
+}
+```
+
+
+### Examples (JSON)
+
+Basic Input text
+```
+{
+    key: "idAnalyzer",
+    wrftype: "input",
+    label: "Change Name",
+    formControl: "idAnalyzerForm"
+}
+```
+
+Input text with custom styles
+```
+{
+    key: "idAnalyzer",
+    wrftype: "input",
+    label: "Change Name",
+    formControl: "idAnalyzerForm",
+    properties: {
+        css: {
+            cssComponent: "input-text-class-custom"
+        }
+    }
+}
+```
+
+### Color
+<Canvas>
+  <Story
+    name="Color: primary"
+    args={{
+      label: "Save",
+      color: "primary",
+      icon: "fas fa-save",
+      key: "1",
+      disabled: "false",
+      properties: '{}'
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Color: secondary"
+    args={{
+      label: "Save",
+      color: "secondary",
+      icon: "fas fa-save",
+      key: "1",
+      disabled: "false",
+      properties: '{}'
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story
+    name="Color: primary and disabled"
+    args={{
+      label: "Save",
+      color: "primary",
+      icon: "fas fa-save",
+      key: "1",
+      disabled: "true",
+      properties: '{}'
+    }}>
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Color: secondary and disabled"
+    args={{
+      label: "Save",
+      color: "secondary",
+      icon: "fas fa-save",
+      key: "1",
+      disabled: "true",
+      properties: '{}'
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

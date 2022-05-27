@@ -1,0 +1,11 @@
+<button
+  [class]="getClass()"
+  [disabled]="(disabled && disabled == 'true')"
+  (click)="handleOnClick()"
+  >
+  <div 
+    class="button-icon-content">
+    <i [ngClass]="icon"></i>
+    <span class="button-icon-content-label"> {{label}} </span>
+  </div>
+</button>
